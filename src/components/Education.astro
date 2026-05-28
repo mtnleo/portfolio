@@ -1,0 +1,54 @@
+---
+import { ui } from "../i18n/ui";
+import { education } from "../data/education";
+---
+
+<section id="education">
+  <h2
+    class="font-display text-2xl text-accent"
+    data-i18n="education.title"
+  >
+    {ui.en["education.title"]}
+  </h2>
+  <ul class="mt-6 space-y-4">
+    {
+      education.map((e, idx) => (
+        <li class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+          <p class="font-display text-base">
+            <strong data-i18n-dyn={`edu.${idx}.degree`}>{e.degree.en}</strong>
+            <span class="text-text-muted"> — {e.school}</span>
+          </p>
+          <p class="font-mono text-xs text-text-muted sm:whitespace-nowrap">
+            {e.start} – {e.end}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<script>
+  import { education } from "../data/education";
+  type Lang = "en" | "es";
+  const root = document.getElementById("education");
+  if (root) {
+    const applyLang = (lang: Lang) => {
+      root.querySelectorAll<HTMLElement>("[data-i18n-dyn]").forEach((el) => {
+        const parts = (el.dataset.i18nDyn ?? "").split(".");
+        if (parts[0] !== "edu") return;
+        const idx = Number(parts[1]);
+        const field = parts[2];
+        const e = education[idx];
+        if (!e) return;
+        if (field === "degree") el.textContent = e.degree[lang];
+      });
+    };
+    new MutationObserver(() =>
+      applyLang((document.documentElement.lang || "en") as Lang)
+    ).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["lang"],
+    });
+    applyLang((document.documentElement.lang || "en") as Lang);
+  }
+</script>
