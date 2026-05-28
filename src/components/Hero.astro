@@ -1,0 +1,35 @@
+---
+import { ui } from "../i18n/ui";
+import MarginNote from "./MarginNote.astro";
+---
+
+<section id="hero">
+  <p
+    class="font-mono text-sm text-text-muted"
+    data-i18n="hero.role"
+  >
+    {ui.en["hero.role"]}
+  </p>
+  <h1
+    class="margin-note-anchor font-display font-light mt-2 text-5xl sm:text-6xl"
+  >
+    <span data-i18n="hero.name">{ui.en["hero.name"]}</span>
+    <MarginNote key="note.hero" side="right" />
+  </h1>
+  <p
+    class="text-text-muted mt-4 max-w-prose"
+    data-i18n="hero.tagline"
+  >
+    {ui.en["hero.tagline"]}
+  </p>
+  <p class="mt-8">
+    <a
+      href="/cv.pdf"
+      download
+      class="font-mono text-sm text-text-muted hover:text-accent-hover link-underline transition-colors"
+      data-i18n="hero.cv"
+    >
+      {ui.en["hero.cv"]}
+    </a>
+  </p>
+</section>

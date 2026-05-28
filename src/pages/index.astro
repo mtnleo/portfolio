@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
 import { ui } from "../i18n/ui";
 ---
 
@@ -8,37 +10,12 @@ import { ui } from "../i18n/ui";
   <span id="top"></span>
   <Nav />
   <main class="content-column pt-16 pb-24 space-y-16">
-    <section id="hero">
-      <p class="font-mono text-sm text-text-muted" data-i18n="hero.role">
-        {ui.en["hero.role"]}
-      </p>
-      <h1 class="font-display text-5xl font-light mt-2" data-i18n="hero.name">
-        {ui.en["hero.name"]}
-      </h1>
-      <p class="text-text-muted mt-4 max-w-prose" data-i18n="hero.tagline">
-        {ui.en["hero.tagline"]}
-      </p>
-    </section>
-
-    <section id="about">
-      <h2 class="font-display text-2xl text-accent" data-i18n="about.title">
-        {ui.en["about.title"]}
-      </h2>
-      <p class="text-text-muted mt-3" data-i18n="about.body">
-        {ui.en["about.body"]}
-      </p>
-    </section>
-
-    <section id="work">
-      <h2 class="font-display text-2xl text-accent" data-i18n="work.title">
-        {ui.en["work.title"]}
-      </h2>
-    </section>
-
-    <section id="projects">
-      <h2 class="font-display text-2xl text-accent" data-i18n="projects.title">
-        {ui.en["projects.title"]}
-      </h2>
-    </section>
+    <Hero />
+    <About />
   </main>
+  <footer class="content-column pb-12">
+    <p class="font-mono text-xs text-text-muted" data-i18n="footer.note">
+      {ui.en["footer.note"]}
+    </p>
+  </footer>
 </Layout>

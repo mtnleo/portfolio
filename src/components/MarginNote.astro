@@ -1,0 +1,16 @@
+---
+import { ui, type UIKey } from "../i18n/ui";
+
+interface Props {
+  key: UIKey;
+  side?: "left" | "right";
+}
+
+const { key, side = "right" } = Astro.props;
+const classes = ["margin-note"];
+if (side === "left") classes.push("margin-note--left");
+---
+
+<span class={classes.join(" ")} data-i18n={key} aria-hidden="true">
+  {ui.en[key]}
+</span>
