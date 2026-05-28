@@ -1,0 +1,70 @@
+---
+import { ui } from "../i18n/ui";
+import LangToggle from "./LangToggle.astro";
+---
+
+<header
+  class="sticky top-0 z-50 bg-bg/80 backdrop-blur-sm border-b border-border"
+>
+  <div
+    id="scroll-progress"
+    class="absolute top-0 left-0 h-px bg-accent pointer-events-none"
+    style="width: 0%"
+    aria-hidden="true"
+  >
+  </div>
+  <nav
+    class="content-column flex items-center justify-between py-4"
+    aria-label="Primary"
+  >
+    <a
+      href="#top"
+      class="font-mono text-sm font-medium tracking-tight text-text hover:text-accent-hover transition-colors"
+    >
+      ML
+    </a>
+    <ul class="flex items-center gap-5 sm:gap-6 font-mono text-sm">
+      <li>
+        <a
+          href="#about"
+          class="text-text-muted hover:text-text link-underline transition-colors"
+          data-i18n="nav.about">{ui.en["nav.about"]}</a
+        >
+      </li>
+      <li>
+        <a
+          href="#work"
+          class="text-text-muted hover:text-text link-underline transition-colors"
+          data-i18n="nav.work">{ui.en["nav.work"]}</a
+        >
+      </li>
+      <li>
+        <a
+          href="#projects"
+          class="text-text-muted hover:text-text link-underline transition-colors"
+          data-i18n="nav.projects">{ui.en["nav.projects"]}</a
+        >
+      </li>
+      <li><LangToggle /></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const bar = document.getElementById("scroll-progress");
+  if (bar) {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function update() {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      bar!.style.width = pct + "%";
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    update();
+    // reduce: still update on scroll (no animation involved — purely width set).
+    // Kept the variable to make intent explicit; no transition is applied here.
+    void reduce;
+  }
+</script>
