@@ -1,0 +1,44 @@
+---
+import { ui } from "../i18n/ui";
+
+// TODO: replace placeholders with real profile URLs before launch
+const LINKEDIN_URL = "https://www.linkedin.com/in/martin-leonardi";
+const GITHUB_URL = "https://github.com/martinleonardi";
+const EMAIL = "mtnleonardi@gmail.com";
+---
+
+<footer class="content-column pt-16 pb-12">
+  <ul class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm">
+    <li>
+      <a
+        href={LINKEDIN_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-text-muted hover:text-accent-hover transition-colors"
+      >
+        <span class="link-underline">LinkedIn</span> ↗
+      </a>
+    </li>
+    <li>
+      <a
+        href={`mailto:${EMAIL}`}
+        class="text-text-muted hover:text-accent-hover transition-colors"
+      >
+        <span class="link-underline">Email</span> ↗
+      </a>
+    </li>
+    <li>
+      <a
+        href={GITHUB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-text-muted hover:text-accent-hover transition-colors"
+      >
+        <span class="link-underline">GitHub</span> ↗
+      </a>
+    </li>
+  </ul>
+  <p class="font-mono text-xs text-text-muted mt-6" data-i18n="footer.note">
+    {ui.en["footer.note"]}
+  </p>
+</footer>

@@ -5,7 +5,8 @@ import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Experience from "../components/Experience.astro";
 import Education from "../components/Education.astro";
-import { ui } from "../i18n/ui";
+import Projects from "../components/Projects.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
@@ -16,10 +17,7 @@ import { ui } from "../i18n/ui";
     <About />
     <Experience />
     <Education />
+    <Projects />
   </main>
-  <footer class="content-column pb-12">
-    <p class="font-mono text-xs text-text-muted" data-i18n="footer.note">
-      {ui.en["footer.note"]}
-    </p>
-  </footer>
+  <Footer />
 </Layout>
