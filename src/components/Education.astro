@@ -3,9 +3,9 @@ import { ui } from "../i18n/ui";
 import { education } from "../data/education";
 ---
 
-<section id="education">
+<section id="education" class="border-t border-border py-12 sm:py-16">
   <h2
-    class="font-display text-2xl text-accent"
+    class="font-display text-2xl text-text"
     data-i18n="education.title"
   >
     {ui.en["education.title"]}
@@ -14,9 +14,11 @@ import { education } from "../data/education";
     {
       education.map((e, idx) => (
         <li class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-          <p class="font-display text-base">
-            <strong data-i18n-dyn={`edu.${idx}.degree`}>{e.degree.en}</strong>
-            <span class="text-text-muted"> — {e.school}</span>
+          <p class="font-body text-base text-text">
+            <strong class="font-semibold" data-i18n-dyn={`edu.${idx}.degree`}>
+              {e.degree.en}
+            </strong>
+            <span class="font-normal text-text-muted"> — {e.school}</span>
           </p>
           <p class="font-mono text-xs text-text-muted sm:whitespace-nowrap">
             {e.start} – {e.end}

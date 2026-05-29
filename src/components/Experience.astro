@@ -3,9 +3,9 @@ import { ui } from "../i18n/ui";
 import { milestones } from "../data/experience";
 ---
 
-<section id="experience">
+<section id="experience" class="border-t border-border py-12 sm:py-16">
   <h2
-    class="font-display text-2xl text-accent"
+    class="font-display text-2xl text-text"
     data-i18n="work.title"
   >
     {ui.en["work.title"]}
@@ -19,9 +19,14 @@ import { milestones } from "../data/experience";
             aria-hidden="true"
           />
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-            <h3 class="font-display text-lg">
-              <strong data-i18n-dyn={`exp.${idx}.role`}>{m.role.en}</strong>
-              <span class="text-text-muted"> — {m.company}</span>
+            <h3 class="font-body text-base text-text">
+              <strong class="font-semibold" data-i18n-dyn={`exp.${idx}.role`}>
+                {m.role.en}
+              </strong>
+              <span class="font-normal text-text-muted">
+                {" — "}
+                <span data-i18n-dyn={`exp.${idx}.company`}>{m.company.en}</span>
+              </span>
             </h3>
             <p class="font-mono text-xs text-text-muted sm:whitespace-nowrap">
               {m.start} – {m.end}
@@ -30,7 +35,7 @@ import { milestones } from "../data/experience";
           <ul class="mt-3 space-y-1.5 text-text-muted">
             {m.bullets.en.map((b, j) => (
               <li class="flex gap-2">
-                <span class="text-accent select-none" aria-hidden="true">
+                <span class="text-text-muted select-none" aria-hidden="true">
                   —
                 </span>
                 <span data-i18n-dyn={`exp.${idx}.bullet.${j}`}>{b}</span>
@@ -58,6 +63,8 @@ import { milestones } from "../data/experience";
         if (!m) return;
         if (field === "role") {
           el.textContent = m.role[lang];
+        } else if (field === "company") {
+          el.textContent = m.company[lang];
         } else if (field === "bullet") {
           const j = Number(parts[3]);
           const b = m.bullets[lang]?.[j];

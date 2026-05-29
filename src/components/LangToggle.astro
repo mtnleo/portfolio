@@ -1,14 +1,15 @@
 ---
-import { ui } from "../i18n/ui";
 ---
 
 <button
   id="lang-toggle"
   type="button"
-  class="font-mono text-sm text-text-muted hover:text-accent-hover link-underline cursor-pointer transition-colors"
+  class="font-mono text-xs sm:text-sm cursor-pointer transition-opacity hover:opacity-80"
   aria-label="Toggle language"
 >
-  <span data-i18n="toggle.label">{ui.en["toggle.label"]}</span>
+  <span data-lang-opt="en" class="text-text">EN</span>
+  <span class="text-text-muted"> / </span>
+  <span data-lang-opt="es" class="text-text-muted">ES</span>
 </button>
 
 <script>
@@ -27,6 +28,14 @@ import { ui } from "../i18n/ui";
           }
         });
       document.documentElement.lang = lang;
+      // Highlight the active language in the literal "EN / ES" toggle.
+      document
+        .querySelectorAll<HTMLElement>("[data-lang-opt]")
+        .forEach((el) => {
+          const active = el.dataset.langOpt === lang;
+          el.classList.toggle("text-text", active);
+          el.classList.toggle("text-text-muted", !active);
+        });
       try {
         localStorage.setItem("lang", lang);
       } catch (e) {

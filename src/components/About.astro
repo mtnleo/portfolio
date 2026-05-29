@@ -2,14 +2,20 @@
 import { ui } from "../i18n/ui";
 ---
 
-<section id="about">
+<section id="about" class="border-t border-border py-12 sm:py-16">
   <h2
-    class="font-display text-2xl text-accent"
+    class="font-display text-2xl text-text"
     data-i18n="about.title"
   >
     {ui.en["about.title"]}
   </h2>
-  <p class="text-text-muted mt-3" data-i18n="about.body">
-    {ui.en["about.body"]}
+  <p class="text-text-muted mt-3" data-i18n="about.p1">{ui.en["about.p1"]}</p>
+  <p class="text-text-muted mt-4" data-i18n="about.p2">{ui.en["about.p2"]}</p>
+  <p class="text-text-muted mt-4">
+    {/* "Golden Gate" is a sibling accent span (NOT data-i18n) so the toggle's
+        textContent swap on about.p3 never touches it. Same in EN/ES. */}
+    <span data-i18n="about.p3">{ui.en["about.p3"]}</span><span class="text-accent"
+      >Golden Gate</span
+    >.
   </p>
 </section>

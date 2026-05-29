@@ -1,9 +1,11 @@
 ---
 import { ui } from "../i18n/ui";
-import MarginNote from "./MarginNote.astro";
+// Margin notes are TBD (COPY §7 — Martin defines the copy after seeing the
+// full site). Component + CSS stay intact; just not rendered for now.
+// import MarginNote from "./MarginNote.astro";
 ---
 
-<section id="hero">
+<section id="hero" class="pt-16 pb-12 sm:pt-28 sm:pb-16">
   <p
     class="font-mono text-sm text-text-muted"
     data-i18n="hero.role"
@@ -14,19 +16,23 @@ import MarginNote from "./MarginNote.astro";
     class="margin-note-anchor font-display font-light mt-2 text-5xl sm:text-6xl"
   >
     <span data-i18n="hero.name">{ui.en["hero.name"]}</span>
-    <MarginNote key="note.hero" side="right" />
+    {/* Margin note hidden until copy is defined (COPY §7). Re-enable by
+        uncommenting the import above and the line below.
+        <MarginNote key="note.hero" side="right" /> */}
   </h1>
   <p
-    class="text-text-muted mt-4 max-w-prose"
+    class="text-text-muted mt-4 mb-10 max-w-xl text-xl sm:text-2xl"
     data-i18n="hero.tagline"
   >
     {ui.en["hero.tagline"]}
   </p>
-  <p class="mt-8">
+  <p>
+    {/* TODO Martin: drop the Resume PDF at /public/cv.pdf. Label says
+        "Resume" in EN (US standard) / "CV" in ES — intentional, COPY §1. */}
     <a
       href="/cv.pdf"
       download
-      class="font-mono text-sm text-text-muted hover:text-accent-hover link-underline transition-colors"
+      class="font-mono text-sm text-accent-hover hover:text-text link-underline transition-colors"
       data-i18n="hero.cv"
     >
       {ui.en["hero.cv"]}

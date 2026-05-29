@@ -19,11 +19,12 @@ import LangToggle from "./LangToggle.astro";
   >
     <a
       href="#top"
+      aria-label="Martin Leonardi — back to top"
       class="font-mono text-sm font-medium tracking-tight text-text hover:text-accent-hover transition-colors"
     >
       ML
     </a>
-    <ul class="flex items-center gap-5 sm:gap-6 font-mono text-sm">
+    <ul class="flex items-center gap-3 sm:gap-6 font-mono text-xs sm:text-sm">
       <li>
         <a
           href="#about"
@@ -36,6 +37,13 @@ import LangToggle from "./LangToggle.astro";
           href="#experience"
           class="text-text-muted hover:text-text link-underline transition-colors"
           data-i18n="nav.work">{ui.en["nav.work"]}</a
+        >
+      </li>
+      <li>
+        <a
+          href="#education"
+          class="text-text-muted hover:text-text link-underline transition-colors"
+          data-i18n="nav.education">{ui.en["nav.education"]}</a
         >
       </li>
       <li>
