@@ -27,11 +27,10 @@ import { ui } from "../i18n/ui";
     {ui.en["hero.tagline"]}
   </p>
   <p>
-    {/* TODO Martin: drop the Resume PDF at /public/cv.pdf. Label says
-        "Resume" in EN (US standard) / "CV" in ES — intentional, COPY §1. */}
+    {/* Same file for EN "Download Resume" and ES "Descargar CV" (COPY §1). */}
     <a
       href="/cv.pdf"
-      download
+      download="Martin-Leonardi-Resume.pdf"
       class="font-mono text-sm text-accent-hover hover:text-text link-underline transition-colors"
       data-i18n="hero.cv"
     >
