@@ -6,7 +6,7 @@ export const ui = {
     "nav.projects": "projects",
 
     "hero.role": "Full-stack developer · Argentina",
-    "hero.name": "Martin Leonardi",
+    "hero.name": "Martín Leonardi",
     "hero.tagline": "Building software that works, AI-focused.",
     "hero.cv": "↓ Download Resume",
 
@@ -38,7 +38,7 @@ export const ui = {
     "nav.projects": "proyectos",
 
     "hero.role": "Desarrollador full-stack · Argentina",
-    "hero.name": "Martin Leonardi",
+    "hero.name": "Martín Leonardi",
     "hero.tagline": "Construyendo software que sirve, AI-focused.",
     "hero.cv": "↓ Descargar CV",
 
