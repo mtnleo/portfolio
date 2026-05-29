@@ -22,10 +22,28 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Martín Leonardi — Full-stack developer" />
+    <meta property="og:description" content="Building software that works, AI-focused." />
+    <meta property="og:image" content={new URL("/og-image.png", Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Martín Leonardi — Full-stack developer, AI-focused. martinleonardi.dev"
+    />
+    <meta property="og:url" content={Astro.url} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Martín Leonardi" />
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Martín Leonardi — Full-stack developer" />
+    <meta
+      name="twitter:description"
+      content="Building software that works, AI-focused."
+    />
+    <meta name="twitter:image" content={new URL("/og-image.png", Astro.site)} />
     <script is:inline>
       (function () {
         try {
